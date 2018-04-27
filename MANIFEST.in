@@ -1,4 +1,0 @@
-include LICENSE
-include README.rst
-recursive-include oauthcommon/templates *
-recursive-include oauthcommon/static *

@@ -12,7 +12,7 @@ from django.test import TestCase
 from requests import Response
 from rest_framework.request import Request
 from oauthlib.oauth2 import TokenExpiredError
-from oauthcommon import authentication
+from automationoauthdrf import authentication
 
 
 class OAuth2Test(TestCase):
@@ -86,7 +86,9 @@ class OAuth2Test(TestCase):
 
         # Mock the internal cached session so that mocked_request() is called and then, if all is
         # working, a new session is obtained via the session patched by patch_oauth2_session.
-        cached_session_patch = mock.patch('oauthcommon.authentication.INTROSPECT_SESSION._session')
+        cached_session_patch = mock.patch(
+            'automationoauthdrf.authentication.INTROSPECT_SESSION._session'
+        )
 
         with cached_session_patch as cached_session, self.patch_oauth2_session():
             cached_session.request.side_effect = mocked_request
@@ -144,7 +146,7 @@ class OAuth2Test(TestCase):
         mock_get_session = mock.MagicMock()
         mock_get_session.return_value.request = mock_request
 
-        return mock.patch('oauthcommon.oauth2client.OAuth2Session', mock_get_session)
+        return mock.patch('automationoauthclient.OAuth2Session', mock_get_session)
 
 
 def _utc_now():

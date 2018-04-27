@@ -9,8 +9,8 @@ from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.authentication import BaseAuthentication
 
-from .models import UserLookup
-from .oauth2client import AuthenticatedSession
+from automationlookup.models import UserLookup
+from automationoauthclient import AuthenticatedSession
 
 
 LOG = logging.getLogger()

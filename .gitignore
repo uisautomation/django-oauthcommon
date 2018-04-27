@@ -8,7 +8,7 @@ __pycache__/
 .DS_Store
 venv/**
 dist/**
-django_oauthcommon.egg-info/**
+django_automationoauth.egg-info/**
 
 # Tox output
 .coverage

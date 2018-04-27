@@ -21,7 +21,7 @@ from django.conf import settings
 
 settings.configure(
     INSTALLED_APPS=(
-        'oauthcommon',
+        'automationlookup',
     ),
     OAUTH2_LOOKUP_SCOPES=['lookup:anonymous'],
     OAUTH2_INTROSPECT_SCOPES=['hydra.introspect'],
@@ -55,7 +55,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'django-oauthcommon'
+project = 'django-automationoauth'
 copyright = '2017, University of Cambridge Information Services'
 author = 'University of Cambridge Information Services'
 
@@ -121,7 +121,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'djangooauthcommondocs'
+htmlhelp_basename = 'djangoautomationoauthdocs'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -148,7 +148,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'django-oauthcommon.tex', '%s Documentation' % project,
+    (master_doc, 'django-automationoauth.tex', '%s Documentation' % project,
      author, 'manual'),
 ]
 
@@ -158,7 +158,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'django-oauthcommon',
+    (master_doc, 'django-automationoauth',
      '%s Documentation' % project,
      [author], 1)
 ]
@@ -170,9 +170,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'django-oauthcommon',
+    (master_doc, 'django-automationoauth',
      '%s Documentation' % project,
-     author, 'django-oauthcommon', 'One line description of project.',
+     author, 'django-automationoauth', 'One line description of project.',
      'Miscellaneous'),
 ]
 

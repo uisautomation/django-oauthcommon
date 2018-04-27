@@ -13,7 +13,7 @@ settings.configure(
     INSTALLED_APPS=(
         'django.contrib.auth',
         'django.contrib.contenttypes',
-        'oauthcommon',
+        'automationlookup',
     ),
     OAUTH2_LOOKUP_SCOPES=['lookup:anonymous'],
     OAUTH2_INTROSPECT_SCOPES=['hydra.introspect'],
@@ -30,6 +30,8 @@ settings.configure(
 django.setup()
 test_runner = DiscoverRunner(verbosity=1)
 
-failures = test_runner.run_tests(['oauthcommon'])
+failures = test_runner.run_tests(
+    ['automationlookup', 'automationoauthclient', 'automationoauthdrf']
+)
 if failures:
     sys.exit(failures)

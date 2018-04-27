@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.test import TestCase
 
-from oauthcommon import lookup, models
+from automationlookup import lookup, models
 
 from . import clear_cached_person_for_user
 
@@ -69,4 +69,4 @@ class LookupTests(TestCase):
 
     def mocked_session(self):
         """Return a patch for the assets.lookup.LOOKUP_SESSION object."""
-        return mock.patch('oauthcommon.lookup.LOOKUP_SESSION')
+        return mock.patch('automationlookup.lookup.LOOKUP_SESSION')

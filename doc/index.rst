@@ -1,29 +1,29 @@
 OAUTH and Lookup Utilities
 ==========================
 
-This is the documentation for the :py:mod:`django-oauthcommon` project which provides a pluggable Django 
+This is the documentation for the :py:mod:`django-automationoauth` project which provides a pluggable Django
 app with common utilities for authenticating requests by interacting with the LOOKUP and OAUTH services.
 
 'authentication' module
 ```````````````````````
 
-.. automodule:: oauthcommon.authentication
+.. automodule:: automationoauthdrf.authentication
     :members:
 
 'lookup' module
 ```````````````
 
-.. automodule:: oauthcommon.lookup
+.. automodule:: automationlookup.lookup
     :members:
 
 'models' module
 ```````````````
 
-.. automodule:: oauthcommon.models
+.. automodule:: automationlookup.models
     :members:
 
 'oauth2client' module
 `````````````````````
 
-.. automodule:: oauthcommon.oauth2client
+.. automodule:: automationoauthclient.__init__
     :members:

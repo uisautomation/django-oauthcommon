@@ -5,7 +5,7 @@ from distutils.core import setup
 from setuptools import find_packages
 
 setup(
-    name='django-oauthcommon',
+    name='django-automationoauth',
     author='University of Cambridge Information Services',
     author_email='automation@uis.cam.ac.uk',
     packages=find_packages(),

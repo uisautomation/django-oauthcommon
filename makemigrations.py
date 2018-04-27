@@ -10,9 +10,9 @@ settings.configure(
     INSTALLED_APPS=(
         'django.contrib.auth',
         'django.contrib.contenttypes',
-        'oauthcommon',
+        'automationoauth',
     ),
 )
 
 django.setup()
-call_command('makemigrations', 'oauthcommon')
+call_command('makemigrations', 'automationoauth')

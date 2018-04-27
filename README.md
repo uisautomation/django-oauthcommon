@@ -1,7 +1,7 @@
-# django-oauthcommon
+# django-automationoauth
 
-[![Build Status](https://travis-ci.org/uisautomation/django-oauthcommon.svg?branch=master)](https://travis-ci.org/uisautomation/django-oauthcommon)
-[![Build Status](https://codecov.io/gh/uisautomation/django-oauthcommon/branch/master/graph/badge.svg)](https://codecov.io/gh/uisautomation/django-oauthcommon)
+[![Build Status](https://travis-ci.org/uisautomation/django-automationoauth.svg?branch=master)](https://travis-ci.org/uisautomation/django-automationoauth)
+[![Build Status](https://codecov.io/gh/uisautomation/django-automationoauth/branch/master/graph/badge.svg)](https://codecov.io/gh/uisautomation/django-automationoauth)
 
 The pluggable Django app provide a common utilities for authenticating requests
 by interacting with the LOOKUP and OAUTH services.

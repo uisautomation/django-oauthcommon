@@ -8,7 +8,7 @@ from django.conf import settings
 from django.core.cache import cache
 
 from .models import UserLookup
-from .oauth2client import AuthenticatedSession
+from automationoauthclient import AuthenticatedSession
 
 
 LOG = logging.getLogger(__name__)
