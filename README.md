@@ -4,7 +4,7 @@
 [![Build Status](https://codecov.io/gh/uisautomation/django-oauthcommon/branch/master/graph/badge.svg)](https://codecov.io/gh/uisautomation/django-oauthcommon)
 
 The pluggable Django app provide a common utilities for authenticating requests
-by interacting with the LOOKUP and OAUTH service.
+by interacting with the LOOKUP and OAUTH services.
 
 ## Getting Started
 

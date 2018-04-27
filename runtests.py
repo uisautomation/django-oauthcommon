@@ -1,5 +1,7 @@
-import django, sys
+import django
+import sys
 from django.conf import settings
+from django.test.runner import DiscoverRunner
 
 settings.configure(
     DEBUG=True,
@@ -26,7 +28,6 @@ settings.configure(
 
 # Django >= 1.8
 django.setup()
-from django.test.runner import DiscoverRunner
 test_runner = DiscoverRunner(verbosity=1)
 
 failures = test_runner.run_tests(['oauthcommon'])
