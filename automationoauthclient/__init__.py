@@ -1,5 +1,5 @@
 """
-The :py:mod:`assets.oauth2client` module provides a wrapper around :py:class:`requests.Session`
+The :py:mod:`automationoauthclient.oauth2client` module provides a wrapper around :py:class:`requests.Session`
 which is pre-authorised with an OAuth2 client token.
 
 """
@@ -11,9 +11,8 @@ from oauthlib.oauth2 import BackendApplicationClient, TokenExpiredError
 
 class AuthenticatedSession:
     """
-    Maintain an authenticated session as a particular OAuth2 client. The client id and secret are
-    specified in the :py:attr:`~assets.defaultsettings.ASSETS_OAUTH2_CLIENT_ID` and
-    :py:attr:`~assets.defaultsettings.ASSETS_OAUTH2_CLIENT_SECRET` settings.
+    Maintain an authenticated session as a particular OAuth2 client. The client id and secret,
+    OAUTH2_CLIENT_ID & OAUTH2_CLIENT_SECRET, are specified in the README.md.
 
     :param sequence scopes: A sequence of strings specifying the scopes which should be requested
         for the token.
