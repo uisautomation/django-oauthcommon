@@ -6,6 +6,8 @@
 The pluggable Django app provide a common utilities for authenticating requests
 by interacting with the LOOKUP and OAUTH services.
 
+Generated documentation can be found at https://uisautomation.github.io/django-automationoauth.
+
 ## Getting Started
 
 To create a virtual environment (a one-off command):
