@@ -22,9 +22,8 @@ from django.conf import settings
 settings.configure(
     INSTALLED_APPS=(
         'automationlookup',
+        'automationoauth',
     ),
-    OAUTH2_LOOKUP_SCOPES=['lookup:anonymous'],
-    OAUTH2_INTROSPECT_SCOPES=['hydra.introspect'],
 )
 
 sys.path.insert(0, os.path.abspath('..'))

@@ -40,13 +40,13 @@ class LookupTests(TestCase):
             'institutions': [{'instid': 'INSTA'}, {'instid': 'INSTB'}],
         }
 
-        with self.mocked_session() as LOOKUP_SESSION:
-            LOOKUP_SESSION.request.return_value.json.return_value = mock_response
+        with self.mocked_session():
+            self.session.request.return_value.json.return_value = mock_response
             response = lookup.get_person_for_user(self.user)
 
         self.assertEqual(response, mock_response)
-        LOOKUP_SESSION.request.assert_called_once_with(
-            url='http://lookupproxy.invalid/people/mock/test0001?fetch=all_insts,all_groups',
+        self.session.request.assert_called_once_with(
+            url='http://lookupproxy.invalid/people/mock/test0001?fetch=all_insts%2Call_groups',
             method='GET'
         )
 
@@ -57,16 +57,18 @@ class LookupTests(TestCase):
             'institutions': [{'instid': 'INSTA'}, {'instid': 'INSTB'}],
         }
 
-        with self.mocked_session() as LOOKUP_SESSION:
-            LOOKUP_SESSION.request.return_value.json.return_value = mock_response
+        with self.mocked_session():
+            self.session.request.return_value.json.return_value = mock_response
             lookup.get_person_for_user(self.user)
             lookup.get_person_for_user(self.user)
 
-        LOOKUP_SESSION.request.assert_called_once_with(
-            url='http://lookupproxy.invalid/people/mock/test0001?fetch=all_insts,all_groups',
+        self.session.request.assert_called_once_with(
+            url='http://lookupproxy.invalid/people/mock/test0001?fetch=all_insts%2Call_groups',
             method='GET'
         )
 
     def mocked_session(self):
-        """Return a patch for the assets.lookup.LOOKUP_SESSION object."""
-        return mock.patch('automationlookup.lookup.LOOKUP_SESSION')
+        """Return a patch for the get_authenticated_session function."""
+        self.session = mock.MagicMock()
+        self.session.request.return_value.json.return_value = {}
+        return mock.patch('automationlookup.get_authenticated_session', return_value=self.session)

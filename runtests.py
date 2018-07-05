@@ -14,9 +14,8 @@ settings.configure(
         'django.contrib.auth',
         'django.contrib.contenttypes',
         'automationlookup',
+        'automationoauth',
     ),
-    OAUTH2_LOOKUP_SCOPES=['lookup:anonymous'],
-    OAUTH2_INTROSPECT_SCOPES=['hydra.introspect'],
     OAUTH2_INTROSPECT_URL='http://oauth2.example.com/oauth2/introspect',
     OAUTH2_TOKEN_URL='http://oauth2.example.com/oauth2/token',
     OAUTH2_CLIENT_ID='api-client-id',
@@ -31,7 +30,8 @@ django.setup()
 test_runner = DiscoverRunner(verbosity=1)
 
 failures = test_runner.run_tests(
-    ['automationlookup', 'automationoauthclient', 'automationoauthdrf']
+    ['automationlookup', 'automationoauthclient', 'automationoauthdrf',
+     'automationoauth']
 )
 if failures:
     sys.exit(failures)

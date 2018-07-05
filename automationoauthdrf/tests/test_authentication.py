@@ -146,7 +146,7 @@ class OAuth2Test(TestCase):
         mock_get_session = mock.MagicMock()
         mock_get_session.return_value.request = mock_request
 
-        return mock.patch('automationoauthclient.OAuth2Session', mock_get_session)
+        return mock.patch('automationoauth.client.OAuth2Session', mock_get_session)
 
 
 def _utc_now():
