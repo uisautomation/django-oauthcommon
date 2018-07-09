@@ -10,7 +10,7 @@ class AutomationLookupConfig(AppConfig):
     name = 'automationlookup'
 
     #: The human-readable verbose name for this application.
-    verbose_name = 'UIS AUotmation Lookup utilities'
+    verbose_name = 'UIS Automation Lookup utilities'
 
     def ready(self):
         """
