@@ -10,7 +10,7 @@ class AutomationOAuthConfig(AppConfig):
     name = 'automationoauth'
 
     #: The human-readable verbose name for this application.
-    verbose_name = 'UIS AUotmation OAuth utilities'
+    verbose_name = 'UIS Automation OAuth utilities'
 
     def ready(self):
         """
