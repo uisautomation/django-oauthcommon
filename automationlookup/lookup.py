@@ -2,20 +2,21 @@
 Module providing lookup API-related functionality.
 
 """
-from urllib.parse import urljoin
 import logging
 from django.conf import settings
 from django.core.cache import cache
 
 from .models import UserLookup
-from automationoauthclient import AuthenticatedSession
+
+from . import get_authenticated_session, get_person
 
 
 LOG = logging.getLogger(__name__)
 
 
-#: An authenticated session which can access the lookup API
-LOOKUP_SESSION = AuthenticatedSession(scopes=settings.OAUTH2_LOOKUP_SCOPES)
+#: An authenticated session which can access the lookup API. Use old OAUTH2_LOOKUP_SCOPES setting
+#: if provided, otherwise fall back to newer LOOKUP_OAUTH2_SCOPES.
+LOOKUP_SESSION = get_authenticated_session()
 
 
 class LookupError(RuntimeError):
@@ -55,20 +56,10 @@ def get_person_for_user(user):
     identifier = user.lookup.identifier
 
     # Ask lookup about this person
-    lookup_response = LOOKUP_SESSION.request(
-        method='GET', url=urljoin(
-            settings.LOOKUP_ROOT,
-            'people/{scheme}/{identifier}?fetch=all_insts,all_groups'.format(
-                scheme=scheme, identifier=identifier
-            )
-        )
-    )
-
-    # Raise if there was an error
-    lookup_response.raise_for_status()
+    lookup_resource = get_person(identifier, scheme, fetch=['all_insts', 'all_groups'])
 
     # save cached value
-    cache.set("{user.username}:lookup".format(user=user), lookup_response.json(),
+    cache.set("{user.username}:lookup".format(user=user), lookup_resource,
               settings.LOOKUP_PEOPLE_CACHE_LIFETIME)
 
     # recurse, which should now retrieve the value from the cache

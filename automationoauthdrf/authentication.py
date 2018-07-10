@@ -10,7 +10,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.authentication import BaseAuthentication
 
 from automationlookup.models import UserLookup
-from automationoauthclient import AuthenticatedSession
+from automationoauth.client import AuthenticatedSession
+from automationoauth.token import verify_token, InvalidTokenError
 
 
 LOG = logging.getLogger()
@@ -69,27 +70,10 @@ class OAuth2TokenAuthentication(BaseAuthentication):
         A valid token must be active, be issued in the past and expire in the future.
 
         """
-        r = INTROSPECT_SESSION.request(method='POST', url=settings.OAUTH2_INTROSPECT_URL,
-                                       timeout=2, data={'token': token})
-        r.raise_for_status()
-        token = r.json()
-        if not token.get('active', False):
+        try:
+            return verify_token(token)
+        except InvalidTokenError:
             return None
-
-        # Get "now" in UTC
-        now = _utc_now()
-
-        if token['iat'] > now:
-            LOG.warning('Rejecting token with "iat" in the future: %s with now = %s"',
-                        token['iat'], now)
-            return None
-
-        if token['exp'] < now:
-            LOG.warning('Rejecting token with "exp" in the past: %s with now = %s"',
-                        token['exp'], now)
-            return None
-
-        return token
 
     def authenticate_header(self, request):
         """
