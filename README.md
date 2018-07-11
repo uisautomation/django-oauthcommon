@@ -42,6 +42,15 @@ To run the test suite:
 tox
 ```
 
+## Generating database migrations
+
+The ``tox`` environment "makemigrations" can be used like the "makemigrations"
+management command:
+
+```bash
+$ tox -e makemigrations [-n NAME] <appname>
+```
+
 ## Configuration
 
 The app's utilities variously require the following Django settings to
