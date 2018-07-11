@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import sys
 
 import django
 
@@ -11,8 +12,9 @@ settings.configure(
         'django.contrib.auth',
         'django.contrib.contenttypes',
         'automationoauth',
+        'automationlookup',
     ),
 )
 
 django.setup()
-call_command('makemigrations', 'automationoauth')
+call_command('makemigrations', *sys.argv[1:])
