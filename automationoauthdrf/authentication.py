@@ -90,7 +90,11 @@ def user_from_subject(subject):
     """
     # Our subjects are of the form '<scheme>:<identifier>'. Form a valid Django username
     # from these values.
-    scheme, identifier = subject.split(':')
+    subject_fields = subject.split(':')
+    if len(subject_fields) != 2:
+        return None
+    scheme, identifier = subject_fields
+
     username = '{}+{}'.format(scheme, identifier)
 
     # This is not quite the same as the default get_or_create() behaviour because we make
