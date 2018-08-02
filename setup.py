@@ -12,7 +12,7 @@ setup(
     include_package_data=True,
     license='MIT',
     install_requires=[
-        'django>=1.8,<2.1',
+        'django>=1.8,<2.2',
         'djangorestframework',
         'requests-oauthlib'
     ],
