@@ -7,12 +7,16 @@ python:
 env:
   - TOXENV=py3-django1.11
   - TOXENV=py3-django2.0
+  - TOXENV=py3-django2.1
 matrix:
   include:
     - python: "3.6"
       env: TOXENV=doc
     - python: "3.6"
       env: TOXENV=flake8
+  exclude:
+    - python: "3.4"
+      env: TOXENV=py3-django2.1
 
 install:
   - pip install tox codecov
