@@ -19,6 +19,9 @@ class AutomationOAuthConfig(AppConfig):
         """
         super().ready()
 
+        # Import, and thereby register, our custom system checks
+        from . import systemchecks  # noqa: F401
+
         # Register default settings in a rather ugly way since Django does not have a cleaner way
         # for apps to register default settings.  https://stackoverflow.com/questions/8428556/
 
