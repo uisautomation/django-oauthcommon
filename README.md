@@ -1,5 +1,7 @@
 # django-automationoauth
 
+> This repository has moved to **https://gitlab.developers.cam.ac.uk/uis/devops/django/automationoauth**
+
 [![Build Status](https://travis-ci.org/uisautomation/django-automationoauth.svg?branch=master)](https://travis-ci.org/uisautomation/django-automationoauth)
 [![Build Status](https://codecov.io/gh/uisautomation/django-automationoauth/branch/master/graph/badge.svg)](https://codecov.io/gh/uisautomation/django-automationoauth)
 
